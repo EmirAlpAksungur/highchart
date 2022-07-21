@@ -2,7 +2,7 @@ import { createRoot } from 'react-dom/client';
 import React from 'react';
 import { BrowserRouter as Router,Link } from 'react-router-dom'
 
-import Charts from './components/charts'
+import Charts from './components/app'
 
 const container = document.getElementById('root');
 const root = createRoot(container);
