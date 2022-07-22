@@ -1,0 +1,19 @@
+.draggable::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+.draggable__comment {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  background-color: transparent;
+}
+.draggable__comment textarea {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+.draggable__comment textarea:focus {
+  background-color: rgb(228, 228, 228);
+}/*# sourceMappingURL=draggable.css.map */

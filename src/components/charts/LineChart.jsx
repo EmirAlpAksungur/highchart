@@ -173,9 +173,7 @@ class LineChart extends Component {
       const { chartOptions } = this.state;
   
       return (
-        <div>
           <HighchartsReact highcharts={Highcharts} options={chartOptions} />
-        </div>
       );
     }
   }
