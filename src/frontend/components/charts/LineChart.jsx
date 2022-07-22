@@ -1,4 +1,3 @@
-// my keyword look again
 import React, { Component } from "react";
 import HighchartsReact from "highcharts-react-official";
 import Highcharts from "highcharts";

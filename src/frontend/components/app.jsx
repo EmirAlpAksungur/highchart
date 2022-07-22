@@ -1,4 +1,4 @@
-import React from 'react'
+import {React} from 'react'
 import { BrowserRouter as Router } from 'react-router-dom'
 
 import Header from './header'
@@ -6,7 +6,8 @@ import Draggable from './draggable'
 import RouterApp from './router/routerApp'
 
 
-const app = () => {
+const App = () => {
+
   return (
      <>
       <Router>
@@ -19,4 +20,4 @@ const app = () => {
   )
 }
 
-export default app
+export default App

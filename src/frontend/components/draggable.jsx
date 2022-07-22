@@ -68,12 +68,7 @@ const Draggable = () => {
                             >
                                 &gt;
                             </div>
-
-                        
                     </div>) 
-
-                    
-                    
                 })}
             </div>
             <div style={{backgroundcolor:"red",marginTop:"20px"}}>

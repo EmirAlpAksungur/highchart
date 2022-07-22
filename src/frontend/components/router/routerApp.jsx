@@ -3,7 +3,7 @@ import { Route, Routes } from 'react-router-dom'
 
 
 import LineChart from '../charts/LineChart'
-import SplineChart from '../charts/splinechart';
+import SplineChart from '../charts/splinechartaxios';
 import StockChart from '../charts/stockchart';
 import Annotations from '../charts/annotations';
 import Boost from '../charts/boost';

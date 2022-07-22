@@ -15,10 +15,7 @@ const data = () => {
                 return csv.replace(/\n\n/g, '\n');*/
             /*csvURL: 'https://demo-live-data.highcharts.com/vs-load.csv',
             enablePolling: true,
-            dataRefreshRate: 1
-            */
-           
-           
+            dataRefreshRate: 1*/         
         },
         chart: {
             //type: 'line'
