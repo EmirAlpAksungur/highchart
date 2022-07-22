@@ -1,5 +1,5 @@
 import {React, useState} from "react";
-import '../assets/draggable.css'
+
 
 const Draggable = () => {
     const [draggableItems,setDraggableItems] = useState([])
@@ -8,29 +8,68 @@ const Draggable = () => {
     return (
         <>
             <div className="draggable">
-                {draggableItems.map((e)=>{
+                {draggableItems.map((e,i)=>{
                     return (
                     <div className="draggable__comment" 
                     key={e.id} draggable="true"  
-                    style={{top:`${e.y+"px"}`,left:`${e.x+"px"}`,zIndex:e.z}} 
+                    style={{top:`${e.y+"px"}`,
+                        left:`${e.x+"px"}`,
+                        zIndex:e.z,
+                        backgroundColor:`rgba(205, 205, 205,${e.opacity})`,
+                        width:`${e.width}px`,
+                        height:`${e.height}px`,
+                        position:"absolute"
+                    }}
+                    
                     onDragEnd={(a)=>{
-                        e.x=a.pageX;
-                        e.y=a.pageY;
-                        setDraggableItems([...draggableItems]);
+                        if(e.isDrag){
+                            console.log(e.width);
+                            e.x=a.pageX;
+                            e.y=a.pageY;
+                            setDraggableItems([...draggableItems]);
+                        }
+                        else{
+                            console.log(a.pageX);
+                            e.width = e.width - (e.x+e.width) + a.pageX;
+                            e.height = e.height - (e.y+e.height) + a.pageY;
+                            e.isDrag = true
+                            setDraggableItems([...draggableItems]);
+                        }
                     }}>
+                        <div style={{float:"right"}}
+                        onClick={()=>{
+                            draggableItems.splice(i,1)
+                            setDraggableItems([...draggableItems]);
+                        }}
+                        >
+                            X
+                        </div>
                         <div>
                             {e.name}
                         </div>
-                        <textarea style={{backgroundColor:`rgba(205, 205, 205,${e.opacity})`}}
-                        onFocus={()=>{
-                            e.opacity=e.opacity+0.3;
-                            setDraggableItems([...draggableItems]);
-                        }}
-                        onBlur={()=>{
-                            e.opacity=e.opacity-0.3;
-                            setDraggableItems([...draggableItems]);
-                        }}
-                        />
+                        <textarea style={{width:"calc(100% - 18px)",height:"calc(100% - 42px)",resize:"unset",overflow:"hidden",backgroundColor:`rgba(255, 255, 255,${e.opacity})`}}></textarea>
+                        <input 
+                            style={{width:"70%",display:"inline-block"}}
+                                    type = "range" 
+                                    value = {e.opacity*100}
+                                    min = "0"
+                                    max = "100"
+                                    onChange={(a)=>{
+                                        e.opacity = a.target.value/100;
+                                        setDraggableItems([...draggableItems]);
+                                    }}
+                                    />
+                            <div 
+                            style={{display:"inline-block",position:"absolute",right:"0",bottom:"18"}}
+                            onMouseDown={()=>{
+                                e.isDrag = false;
+                                setDraggableItems([...draggableItems]);
+                            }}
+                            >
+                                &gt;
+                            </div>
+
+                        
                     </div>) 
 
                     
@@ -45,42 +84,12 @@ const Draggable = () => {
                     }}/>
                     <button onClick={(e)=>{
                         e.preventDefault();
-                        setDraggableItems([...draggableItems,{id:uuid,x:0,y:0,opacity:0,name:name}])
+                        setDraggableItems([...draggableItems,{id:uuid,x:0,y:0,opacity:0,name:name,width:100,height:100,isDrag:true}])
                         setUuid(uuid+1)
                     }}>
                         Add a new textarea
                     </button>
                 </form>
-                <ul>
-                    {
-                        draggableItems.map((e,i)=>{
-                            return (
-                                <li key={e.id} style={{marginTop:"10px"}}>
-                                    {e.name}
-                                    <br />
-                                    opacity:
-                                    <input 
-                                    type = "range" 
-                                    value = {e.opacity*100}
-                                    min = "0"
-                                    max = "100"
-                                    onChange={(a)=>{
-                                        e.opacity = a.target.value/100;
-                                        setDraggableItems([...draggableItems]);
-                                    }}
-                                    />
-                                    <br />
-                                    <button style={{marginTop:"5px"}}
-                                    onClick={()=>{
-                                        draggableItems.splice(i,1)
-                                        setDraggableItems([...draggableItems]);
-                                    }}
-                                    >delete</button>
-                                </li>
-                            )
-                        })
-                    }
-                </ul>
             </div>
         </>
     );
