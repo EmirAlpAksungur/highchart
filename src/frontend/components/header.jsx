@@ -9,10 +9,10 @@ const header = () => {
                 <Link to="/linechart" style={{color: "#6BBEED",textDecoration:"none"}}>Line Chart</Link>
             </li>
             <li style={{marginBottom: "5px"}}>
-                <Link to="/splinechart" style={{color: "#6BBEED",textDecoration:"none"}}>Spline Chart Axios</Link>
+                <Link to="/splinechartaxios" style={{color: "#6BBEED",textDecoration:"none"}}>Spline Chart Axios</Link>
             </li>
             <li style={{marginBottom: "5px"}}>
-                <Link to="/stockchart" style={{color: "#6BBEED",textDecoration:"none"}}>Stock Chart</Link>
+                <Link to="/draggableresizable" style={{color: "#6BBEED",textDecoration:"none"}}>Draggabe and Resizable</Link>
             </li>
         </ul>
         <ul style={{display: "inline-block"}}>

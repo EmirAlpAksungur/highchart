@@ -4,7 +4,7 @@ import { Route, Routes } from 'react-router-dom'
 
 import LineChart from '../charts/LineChart'
 import SplineChart from '../charts/splinechartaxios';
-import StockChart from '../charts/stockchart';
+import DraggableResizeble from '../charts/draggableresizable';
 import Annotations from '../charts/annotations';
 import Boost from '../charts/boost';
 import Captain from '../charts/captain';
@@ -36,8 +36,8 @@ const routerApp = () => {
   return (
     <Routes>
             <Route path="/linechart" element={<LineChart/>}/>
-            <Route path="/splinechart" element={<SplineChart/>}/>
-            <Route path="/stockchart" element={<StockChart/>}/>
+            <Route path="/splinechartaxios" element={<SplineChart/>}/>
+            <Route path="/draggableresizable" element={<DraggableResizeble/>}/>
             <Route path="/annotations" element={<Annotations/>}/>
             <Route path="/boost" element={<Boost/>}/>
             <Route path="/captain" element={<Captain/>}/>
